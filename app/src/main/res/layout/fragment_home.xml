@@ -1,14 +1,156 @@
-<?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:padding="20dp"
     tools:context=".Home">
 
     <!-- TODO: Update blank fragment layout -->
     <TextView
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:text="@string/hello_blank_fragment" />
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:paddingStart="20dp"
+        android:paddingTop="30dp"
+        android:text="Home"
+        android:textColor="#2E3ADD"
+        android:textSize="60sp"
+        android:textStyle="bold" />
 
-</FrameLayout>
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:paddingStart="20dp"
+        android:paddingTop="1dp"
+        android:paddingBottom="20dp"
+        android:text="Keep up the great work!"
+        android:textColor="#2E3ADD"
+        android:textSize="30sp" />
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:paddingStart="20dp"
+        android:paddingTop="1dp"
+        android:paddingBottom="10dp"
+        android:textStyle="bold"
+        android:text="Today you have:"
+        android:textColor="#2E3ADD"
+        android:textSize="30sp" />
+    <CheckBox
+        android:id="@+id/task1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Upper Body Strength Workout"
+        android:layout_marginStart="10dp"
+        android:textSize="20sp"
+        android:textColor="#2E3ADD"/>
+    <CheckBox
+        android:id="@+id/task2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Drink 16 oz. water"
+        android:layout_marginStart="10dp"
+        android:textSize="20sp"
+        android:textColor="#2E3ADD"
+      />
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:paddingStart="10dp"
+        android:paddingTop="30dp"
+        android:paddingBottom="10dp"
+        android:text="Daily Exercise Goal"
+        android:textColor="#2E3ADD"
+        android:textSize="25sp" />
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:gravity="center_vertical">
+    <ProgressBar
+        android:id="@+id/progressBar"
+        style="?android:attr/progressBarStyleHorizontal"
+        android:layout_width="500dp"
+        android:layout_height="20dp"
+        android:progress="60"
+        android:scaleY="3"
+        android:paddingLeft="15dp"/>
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:paddingStart="20dp"
+        android:paddingTop="3dp"
+        android:text="60%"
+        android:textColor="#2E3ADD"
+        android:textSize="20sp" />
+
+    </LinearLayout>
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:paddingStart="10dp"
+        android:paddingTop="1dp"
+        android:paddingBottom="10dp"
+        android:text="Daily Calorie Goal"
+        android:textColor="#2E3ADD"
+        android:textSize="25sp" />
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:gravity="center_vertical">
+        <ProgressBar
+            android:id="@+id/progressBar2"
+            style="?android:attr/progressBarStyleHorizontal"
+            android:layout_width="500dp"
+            android:layout_height="20dp"
+            android:progress="30"
+            android:scaleY="3"
+            android:paddingLeft="15dp"/>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:paddingStart="20dp"
+            android:paddingTop="3dp"
+            android:text="30%"
+            android:textColor="#2E3ADD"
+            android:textSize="20sp" />
+
+    </LinearLayout>
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:gravity="center_vertical"
+        android:paddingStart="20dp"
+        android:paddingTop="20dp"
+        android:paddingBottom="10dp">
+
+        <TextView
+            android:layout_width="600dp"
+            android:layout_height="121dp"
+            android:paddingStart="20dp"
+            android:paddingTop="20dp"
+            android:paddingBottom="10dp"
+            android:text="Weekly Progress- 3 Day Streak!"
+            android:textColor="#2E3ADD"
+            android:textSize="40sp"
+            android:textStyle="bold" />
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="🔥"
+        android:textSize="35sp"
+        android:layout_marginStart="2dp" />
+    </LinearLayout>
+
+    <ImageView
+        android:id="@+id/myImageView"
+        android:layout_width="372dp"
+        android:layout_height="450dp"
+        android:contentDescription="graph"
+        android:scaleType="centerCrop"
+        android:src="@drawable/graph" />
+
+</LinearLayout>

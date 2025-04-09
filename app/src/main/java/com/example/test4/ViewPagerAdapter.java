@@ -20,6 +20,8 @@ public class ViewPagerAdapter extends FragmentStateAdapter {
                 return new Calorie_Tracker();
             case 2:
                 return new Workout();
+            case 3:
+                return new Journal();
             default:
                 return new Home();
         }
@@ -27,6 +29,6 @@ public class ViewPagerAdapter extends FragmentStateAdapter {
 
     @Override
     public int getItemCount() {
-        return 3;
+        return 4;
     }
 }
