@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:gravity="center"
+    android:padding="24dp"
+    tools:context=".AddMealActivity">
+
+    <androidx.appcompat.widget.Toolbar
+        android:id="@+id/toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="?attr/colorPrimary"
+        android:minHeight="?attr/actionBarSize"
+
+        android:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar"
+        android:elevation="4dp" />
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_marginBottom="16dp">
+
+
+
+        <TextView
+            android:id="@+id/tvMealTitle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Add Meal"
+            android:textSize="20sp"
+            android:layout_marginStart="16dp"/>
+
+    </LinearLayout>
+
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="📋 Food Items:"
+        android:textSize="28sp"
+        android:gravity="center"
+        android:layout_marginTop="16dp"/>
+
+    <ListView
+        android:id="@+id/listViewFoodItems"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:dividerHeight="8dp"/>
+
+    <Button
+        android:id="@+id/btnAddFoodItem"
+        android:layout_width="240dp"
+
+        android:layout_height="wrap_content"
+        android:text="+ Add Food Item"
+        android:textSize="24sp"
+        android:padding="18dp"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginBottom="64dp"/>
+
+
+    <!-- Total Calories and Confirm -->
+    <TextView
+        android:id="@+id/tvTotalCalories"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Total Calories: 0 cals"
+        android:textSize="16sp"
+        android:layout_marginTop="16dp"/>
+
+    <Button
+        android:id="@+id/btnConfirmAddMeal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Confirm &amp; Add Meal"
+        android:layout_marginTop="8dp"/>
+
+</LinearLayout>
+
+
+
+
+
+

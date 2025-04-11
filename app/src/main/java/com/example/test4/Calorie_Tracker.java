@@ -1,7 +1,14 @@
 package com.example.test4;
 
+import static android.app.Activity.RESULT_OK;
+
+import android.content.Intent;
 import android.os.Bundle;
 
+import androidx.activity.result.ActivityResultLauncher;
+import androidx.activity.result.contract.ActivityResultContracts;
+import androidx.annotation.Nullable;
+import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.Fragment;
 
 import android.view.LayoutInflater;
@@ -11,57 +18,58 @@ import android.widget.Button;
 import android.widget.ProgressBar;
 import android.widget.TextView;
 
-/**
- * A simple {@link Fragment} subclass.
- * Use the {@link Calorie_Tracker#newInstance} factory method to
- * create an instance of this fragment.
- */
 public class Calorie_Tracker extends Fragment {
+    private Button addMeal;
 
-    private int CurrentProgress = 0;
-    private ProgressBar progressBar;
-    private Button startProgress;
-    private TextView calorieLabel;
-    TextView motivationMessage;
+    private ActivityResultLauncher<Intent> addMealLauncher;
+
+    private int totalCaloriesSoFar = 0;
+    private final int dailyGoal = 2000;
 
     @Override
-    public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
+    public View onCreateView(LayoutInflater inflater, ViewGroup container,
+                             Bundle savedInstanceState) {
 
         View view = inflater.inflate(R.layout.fragment_calorie__tracker, container, false);
 
-        progressBar = view.findViewById(R.id.progressBar);
-        startProgress = view.findViewById(R.id.start_progress);
-        calorieLabel = view.findViewById(R.id.calorieLabel);
-        motivationMessage = view.findViewById(R.id.motivationMessage);
+        addMeal = view.findViewById(R.id.add_meal_button);
 
-        int goalCalories = 2000; // example goal
-        int currentCalories = 1600; // example curr progress
+        addMealLauncher = registerForActivityResult(
+                new ActivityResultContracts.StartActivityForResult(),
+                result -> {
+                    if (result.getResultCode() == RESULT_OK && result.getData() != null) {
+                        Intent data = result.getData();
+                        int mealCalories = data.getIntExtra("mealCalories", 0);
+                        String mealType = data.getStringExtra("mealType");
 
-        // set progress (0-100 scale)
-        progressBar.setProgress((int) ((currentCalories / (float) goalCalories) * 100));
+                        updateCalorieProgress(mealCalories);
+                    }
+                }
+        );
 
-        // update label
-        calorieLabel.setText(currentCalories + "/" + goalCalories + " Calories");
 
-        if (currentCalories >= goalCalories * 0.9) {
-            motivationMessage.setVisibility(View.VISIBLE);
-            motivationMessage.setText("Almost there! 🎯\nYou're crushing it!");
-        } else if (currentCalories >= goalCalories * 0.7) {
-            motivationMessage.setVisibility(View.VISIBLE);
-            motivationMessage.setText("Keep going! 💪\nYou're getting close!");
-        } else {
-            motivationMessage.setVisibility(View.GONE); // Hide if not near goal
-        }
-
-        startProgress.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                CurrentProgress = CurrentProgress + 10;
-                progressBar.setProgress(CurrentProgress);
-                progressBar.setMax(100);
-            }
+        addMeal.setOnClickListener(v -> {
+            Intent intent = new Intent(getActivity(), MealSelectionActivity.class);
+            addMealLauncher.launch(intent);
         });
+
 
         return view;
     }
+
+
+    private void updateCalorieProgress(int addedCalories) {
+        totalCaloriesSoFar += addedCalories;
+
+        ProgressBar progressBar = getView().findViewById(R.id.progressBar);
+        TextView calorieLabel = getView().findViewById(R.id.calorieLabel);
+
+
+        progressBar.setMax(dailyGoal);
+        progressBar.setProgress(totalCaloriesSoFar);
+
+        calorieLabel.setText(totalCaloriesSoFar + "/" + dailyGoal + " Calories");
+    }
+
+
 }

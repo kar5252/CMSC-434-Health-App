@@ -2,4 +2,11 @@
     <string name="app_name">test4</string>
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
+
+    <string name="back">Back</string>
+    <string name="food_items">Food Items:</string>
+    <string name="add_food_item">+ Add Food Item</string>
+    <string name="total_calories_0_kcal">Total Calories: 0 kcal</string>
+    <string name="confirm_add_meal">Confirm &amp; Add Meal</string>
+
 </resources>
