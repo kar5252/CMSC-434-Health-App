@@ -21,7 +21,7 @@ public class ViewPagerAdapter extends FragmentStateAdapter {
             case 2:
                 return new Workout();
             case 3:
-                return new Journal();
+                return new JournalFragment();
             default:
                 return new Home();
         }

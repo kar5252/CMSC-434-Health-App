@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:gravity="center"
+    android:padding="24dp"
+    tools:context=".MealSelectionActivity"
+    android:background="#424549">
+
+    <androidx.appcompat.widget.Toolbar
+        android:id="@+id/toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="?attr/colorPrimary"
+        android:minHeight="?attr/actionBarSize"
+
+        android:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar"
+        android:elevation="4dp" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:gravity="center"
+        android:paddingTop="32dp">
+
+
+        <!-- 🍽️ Title -->
+        <TextView
+            android:id="@+id/tvTitle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="🍽️ Add a Meal"
+            android:textSize="36sp"
+            android:textStyle="bold"
+            android:layout_marginBottom="32dp"
+            android:textColor="#FAFAFA" />
+
+        <!-- [ + ] Breakfast -->
+        <Button
+            android:id="@+id/btnBreakfast"
+            android:layout_width="180dp"
+            android:layout_height="wrap_content"
+            android:text="🥞 Breakfast"
+            android:textSize="24sp"
+            android:padding="18dp"
+            android:layout_marginBottom="20dp"
+            android:layout_gravity="center" />
+
+
+        <!-- [ + ] Lunch -->
+        <Button
+            android:id="@+id/btnLunch"
+            android:layout_width="180dp"
+            android:layout_height="wrap_content"
+            android:text="🍔 Lunch"
+            android:textSize="24sp"
+            android:padding="18dp"
+            android:layout_marginBottom="20dp"
+            android:layout_gravity="center" />
+
+        <!-- [ + ] Dinner -->
+        <Button
+            android:id="@+id/btnDinner"
+            android:layout_width="180dp"
+            android:layout_height="wrap_content"
+            android:text="🥘 Dinner"
+            android:textSize="24sp"
+            android:padding="18dp"
+            android:layout_marginBottom="20dp"
+            android:layout_gravity="center" />
+
+        <!-- [ + ] Snack -->
+        <Button
+            android:id="@+id/btnSnack"
+            android:layout_width="180dp"
+            android:layout_height="wrap_content"
+            android:text="🍪 Snack"
+            android:textSize="24sp"
+            android:padding="18dp"
+            android:layout_gravity="center"/>
+
+    </LinearLayout>
+
+</LinearLayout>
+
