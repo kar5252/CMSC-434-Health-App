@@ -15,12 +15,12 @@ import androidx.viewpager2.widget.ViewPager2;
 
 import com.google.android.material.tabs.TabLayout;
 
-public class MainActivity extends AppCompatActivity {
+public class MainActivity extends AppCompatActivity implements TabNavigator {
     TabLayout tablayout;
     ViewPager2 viewPager2;
 //    These variables are for making the tabs appear larger:
     //TabLayout tabLayout = findViewById(R.id.tabLayout);
-    String [] tabTitles = {"Home", "Calorie Tracker", "Workout", "Progress"};
+    String [] tabTitles = {"Home", "Calorie Tracker", "Workout", "Goal"};
 
     ViewPagerAdapter viewPagerAdapter;
     //everything below is for the functionality of the tabs
@@ -69,11 +69,13 @@ public class MainActivity extends AppCompatActivity {
                 tab.setCustomView(customView);
             }
         }
-        //Idk what below is for:
-        /*ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main), (v, insets) -> {
-            Insets systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars());
-            v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom);
-            return insets;
-        });*/
+    }
+    @Override
+    public void workoutTab() {
+        viewPager2.setCurrentItem(2);
+    }
+    @Override
+    public void calorieTab(){
+        viewPager2.setCurrentItem(1);
     }
 }
