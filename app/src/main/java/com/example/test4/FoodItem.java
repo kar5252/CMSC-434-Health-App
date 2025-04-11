@@ -1,8 +1,11 @@
 package com.example.test4;
 
+import android.os.Parcel;
+import android.os.Parcelable;
+
 //Lets user: Search from predefined food list, Add a custom food item (name + calories)
 //Passes selected item back to AddMealActivity
-public class FoodItem {
+public class FoodItem implements Parcelable {
     public String name;
     public int calories;
     public String emoji;
@@ -12,4 +15,35 @@ public class FoodItem {
         this.calories = calories;
         this.emoji = emoji;
     }
+
+    protected FoodItem(Parcel in) {
+        name = in.readString();
+        calories = in.readInt();
+        emoji = in.readString();
+    }
+
+    public static final Creator<FoodItem> CREATOR = new Creator<FoodItem>() {
+        @Override
+        public FoodItem createFromParcel(Parcel in) {
+            return new FoodItem(in);
+        }
+
+        @Override
+        public FoodItem[] newArray(int size) {
+            return new FoodItem[size];
+        }
+    };
+
+    @Override
+    public int describeContents() {
+        return 0;
+    }
+
+    @Override
+    public void writeToParcel(Parcel parcel, int i) {
+        parcel.writeString(name);
+        parcel.writeInt(calories);
+        parcel.writeString(emoji);
+    }
 }
+

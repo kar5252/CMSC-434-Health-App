@@ -8,15 +8,12 @@ import android.os.Bundle;
 import android.view.MenuItem;
 import android.view.View;
 
-import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
 
 import android.widget.ListView;
 import android.widget.TextView;
 import android.widget.Toast;
-
-import android.widget.ImageButton;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
@@ -77,6 +74,7 @@ public class AddMealActivity extends AppCompatActivity {
             Intent resultIntent = new Intent();
             resultIntent.putExtra("mealCalories", total);
             resultIntent.putExtra("mealType", mealType); // Optionally pass meal type
+            resultIntent.putParcelableArrayListExtra("foodItems", foodList);
             setResult(RESULT_OK, resultIntent);
 
             Toast.makeText(this, "Meal added!", Toast.LENGTH_SHORT).show();
