@@ -20,6 +20,9 @@ public class JournalFragment extends Fragment {
 
     private EditText goalInput;
     private Button addGoalButton;
+
+    private Button deleteGoalsButton;
+
     private ListView goalsListView;
 
     private ArrayAdapter<String> adapter;
@@ -45,7 +48,6 @@ public class JournalFragment extends Fragment {
 
         goalsListView.setAdapter(adapter);
         goalsListView.setChoiceMode(ListView.CHOICE_MODE_MULTIPLE);
-
         addGoalButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -57,6 +59,7 @@ public class JournalFragment extends Fragment {
                 }
             }
         });
+
 
         return view;
     }
