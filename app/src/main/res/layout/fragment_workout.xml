@@ -55,22 +55,7 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Additional Notes"
-            android:textSize="14sp"
-            android:layout_marginTop="12dp"
-            android:layout_marginBottom="4dp" />
-
-        <EditText
-            android:id="@+id/notesInput"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:hint="Add any notes here"
-            android:textSize="14sp" />
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Recommended Workouts"
+            android:text="Workout Recommendations"
             android:textSize="16sp"
             android:layout_marginTop="12dp"
             android:layout_marginBottom="4dp" />
@@ -78,18 +63,30 @@
         <ListView
             android:id="@+id/workoutListView"
             android:layout_width="match_parent"
-            android:layout_height="250dp"
+            android:layout_height="150dp"
             android:divider="@android:color/darker_gray"
             android:dividerHeight="1dp"
             android:padding="8dp" />
 
         <Button
             android:id="@+id/confirmWorkoutButton"
-            android:layout_width="match_parent"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Confirm Workout"
             android:layout_marginTop="8dp"
-            android:textSize="14sp"
-            android:layout_gravity="center" />
+            android:textSize="12sp"
+            android:layout_gravity="center_horizontal"
+            android:padding="8dp" />
+
+        <Button
+            android:id="@+id/previousWorkoutsButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Previous Workouts"
+            android:textSize="12sp"
+            android:layout_gravity="center_horizontal"
+            android:padding="8dp"
+            android:layout_marginTop="8dp" />
+
     </LinearLayout>
 </ScrollView>

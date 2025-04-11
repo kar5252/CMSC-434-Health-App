@@ -6,6 +6,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
+import android.widget.EditText;
 import android.widget.ListView;
 import android.widget.Spinner;
 import android.widget.TextView;
@@ -14,43 +15,50 @@ import android.widget.Toast;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentTransaction;
+import androidx.viewpager2.widget.ViewPager2;
 
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import com.google.android.material.tabs.TabLayout;
 
 public class Workout extends Fragment {
 
+    private static final List<String> workoutHistory = new ArrayList<>();
+
+    @Nullable
     @Override
-    public View onCreateView(LayoutInflater inflater, ViewGroup container,
-                             Bundle savedInstanceState) {
+    public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_workout, container, false);
 
         Spinner muscleDropdown = view.findViewById(R.id.muscleDropdown);
         Spinner durationDropdown = view.findViewById(R.id.durationDropdown);
+        EditText repsSetsInput = view.findViewById(R.id.repsSetsInput);
         ListView workoutListView = view.findViewById(R.id.workoutListView);
         Button confirmWorkoutButton = view.findViewById(R.id.confirmWorkoutButton);
+        Button previousWorkoutsButton = view.findViewById(R.id.previousWorkoutsButton);
 
         Map<String, List<String>> workoutData = new HashMap<>();
-        workoutData.put("chest", new ArrayList<String>() {{
+        workoutData.put("Chest", new ArrayList<String>() {{
             add("Push-ups (Easy)");
             add("Bench Press (Medium)");
             add("Incline Dumbbell Press (Hard)");
         }});
-        workoutData.put("legs", new ArrayList<String>() {{
+        workoutData.put("Legs", new ArrayList<String>() {{
             add("Bodyweight Squats (Easy)");
             add("Lunges (Medium)");
             add("Barbell Squats (Hard)");
         }});
-        workoutData.put("back", new ArrayList<String>() {{
+        workoutData.put("Back", new ArrayList<String>() {{
             add("Pull-ups (Easy)");
             add("Lat Pulldown (Medium)");
             add("Deadlift (Hard)");
         }});
 
         List<String> muscleGroups = new ArrayList<>(workoutData.keySet());
-        ArrayAdapter<String> muscleAdapter = new ArrayAdapter<>(getContext(),
+        ArrayAdapter<String> muscleAdapter = new ArrayAdapter<>(requireContext(),
                 android.R.layout.simple_spinner_item, muscleGroups);
         muscleAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         muscleDropdown.setAdapter(muscleAdapter);
@@ -61,7 +69,7 @@ public class Workout extends Fragment {
         durations.add("45 minutes");
         durations.add("60 minutes");
 
-        ArrayAdapter<String> durationAdapter = new ArrayAdapter<>(getContext(),
+        ArrayAdapter<String> durationAdapter = new ArrayAdapter<>(requireContext(),
                 android.R.layout.simple_spinner_item, durations);
         durationAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         durationDropdown.setAdapter(durationAdapter);
@@ -84,10 +92,33 @@ public class Workout extends Fragment {
         confirmWorkoutButton.setOnClickListener(v -> {
             String selectedMuscle = muscleDropdown.getSelectedItem().toString();
             String selectedDuration = durationDropdown.getSelectedItem().toString();
+            String repsSets = repsSetsInput.getText().toString();
 
-            Toast.makeText(getContext(), "Workout Confirmed:\n" +
-                    "Muscle: " + selectedMuscle + "\nDuration: " + selectedDuration, Toast.LENGTH_LONG).show();
+            String workoutDetails = "Muscle: " + selectedMuscle + ", Duration: " + selectedDuration +
+                    ", Reps/Sets: " + repsSets;
+            workoutHistory.add(workoutDetails);
+
+            Toast.makeText(requireContext(), "Workout Confirmed:\n" + workoutDetails, Toast.LENGTH_LONG).show();
         });
+
+        previousWorkoutsButton.setOnClickListener(v -> {
+            ViewPager2 viewPager = requireActivity().findViewById(R.id.viewPager);
+            TabLayout tabLayout = requireActivity().findViewById(R.id.tabLayout);
+            View fragmentContainer = requireActivity().findViewById(R.id.fragmentContainer);
+
+            viewPager.setVisibility(View.GONE);
+            tabLayout.setVisibility(View.GONE);
+
+            fragmentContainer.setVisibility(View.VISIBLE);
+
+            FragmentTransaction transaction = requireActivity().getSupportFragmentManager().beginTransaction();
+            transaction.replace(R.id.fragmentContainer, new PreviousWorkouts());
+            transaction.addToBackStack(null);
+            transaction.commit();
+        });
+
+
+
 
         return view;
     }
@@ -96,7 +127,7 @@ public class Workout extends Fragment {
         private final List<String> workouts;
 
         public CustomAdapter(@NonNull List<String> workouts) {
-            super(requireContext(), R.layout.list_item_workout, workouts);
+            super(requireContext(), android.R.layout.simple_list_item_1, workouts);
             this.workouts = workouts;
         }
 
@@ -104,10 +135,10 @@ public class Workout extends Fragment {
         @Override
         public View getView(int position, @Nullable View convertView, @NonNull ViewGroup parent) {
             if (convertView == null) {
-                convertView = LayoutInflater.from(getContext()).inflate(R.layout.list_item_workout, parent, false);
+                convertView = LayoutInflater.from(getContext()).inflate(android.R.layout.simple_list_item_1, parent, false);
             }
 
-            TextView workoutItemText = convertView.findViewById(R.id.workoutItemText);
+            TextView workoutItemText = (TextView) convertView;
             String workout = workouts.get(position);
             workoutItemText.setText(workout);
 
@@ -121,5 +152,9 @@ public class Workout extends Fragment {
 
             return convertView;
         }
+    }
+
+    public static List<String> getWorkoutHistory() {
+        return workoutHistory;
     }
 }
