@@ -110,7 +110,29 @@ public class AddMealActivity extends AppCompatActivity {
                 String emoji = "🍽️"; // You can customize this logic
                 if (foodName.toLowerCase().contains("egg")) emoji = "🥚";
                 else if (foodName.toLowerCase().contains("toast")) emoji = "🍞";
+                else if (foodName.toLowerCase().contains("pancake")) emoji = "🥞";
                 else if (foodName.toLowerCase().contains("banana")) emoji = "🍌";
+                else if (foodName.toLowerCase().contains("pasta")) emoji = "🍝";
+                else if (foodName.toLowerCase().contains("pizza")) emoji = "🍕";
+                else if (foodName.toLowerCase().contains("cereal")) emoji = "🥣";
+                else if (foodName.toLowerCase().contains("waffle")) emoji = "🧇";
+                else if (foodName.toLowerCase().contains("donut")) emoji = "🍩";
+                else if (foodName.toLowerCase().contains("bagel")) emoji = "🥯";
+                else if (foodName.toLowerCase().contains("steak")) emoji = "🥩";
+                else if (foodName.toLowerCase().contains("salad")) emoji = "🥗";
+                else if (foodName.toLowerCase().contains("sandwich")) emoji = "🥪";
+                else if (foodName.toLowerCase().contains("chicken")) emoji = "🍗";
+                else if (foodName.toLowerCase().contains("fish")) emoji = "🐟";
+                else if (foodName.toLowerCase().contains("ramen")) emoji = "🍜";
+                else if (foodName.toLowerCase().contains("soup")) emoji = "🍲";
+                else if (foodName.toLowerCase().contains("apple")) emoji = "🍎";
+                else if (foodName.toLowerCase().contains("hotdog")) emoji = "🌭";
+                else if (foodName.toLowerCase().contains("popcorn")) emoji = "🍿";
+                else if (foodName.toLowerCase().contains("taco")) emoji = "🌮";
+                else if (foodName.toLowerCase().contains("burrito")) emoji = "🌯";
+                else if (foodName.toLowerCase().contains("fries")) emoji = "🍟";
+                else if (foodName.toLowerCase().contains("pie")) emoji = "🥧";
+
 
                 foodList.add(new FoodItem(foodName, kcal, emoji));
                 foodAdapter.notifyDataSetChanged();
