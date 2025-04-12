@@ -38,7 +38,7 @@
             android:layout_marginBottom="32dp"
             android:textColor="#FAFAFA" />
 
-        <!-- [ + ] Breakfast -->
+        <!-- Breakfast -->
         <Button
             android:id="@+id/btnBreakfast"
             android:layout_width="180dp"
@@ -50,7 +50,7 @@
             android:layout_gravity="center" />
 
 
-        <!-- [ + ] Lunch -->
+        <!-- Lunch -->
         <Button
             android:id="@+id/btnLunch"
             android:layout_width="180dp"
@@ -61,7 +61,7 @@
             android:layout_marginBottom="20dp"
             android:layout_gravity="center" />
 
-        <!-- [ + ] Dinner -->
+        <!-- Dinner -->
         <Button
             android:id="@+id/btnDinner"
             android:layout_width="180dp"
@@ -72,7 +72,7 @@
             android:layout_marginBottom="20dp"
             android:layout_gravity="center" />
 
-        <!-- [ + ] Snack -->
+        <!-- Snack -->
         <Button
             android:id="@+id/btnSnack"
             android:layout_width="180dp"

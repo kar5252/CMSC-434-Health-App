@@ -25,18 +25,14 @@ import com.example.test4.FoodItemAdapter;
 import com.example.test4.FoodItem;
 
 
-//displays mealType in title, list of FoodItems added, Total Calories,
-// Add Food Item ➜ opens FoodSearchDialog
+// Add Food Item -> opens FoodSearchDialog
 public class AddMealActivity extends AppCompatActivity {
 
     private TextView tvMealTitle, tvTotalCalories;
     private ListView listViewFoodItems;
-//    private ArrayAdapter<String> foodAdapter;
-//    private ArrayList<String> foodList;
+
     private ArrayList<FoodItem> foodList;
     private FoodItemAdapter foodAdapter;
-
-    private int totalCalories = 0;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -54,7 +50,7 @@ public class AddMealActivity extends AppCompatActivity {
         Button btnAddFoodItem = findViewById(R.id.btnAddFoodItem);
         Button btnConfirmAddMeal = findViewById(R.id.btnConfirmAddMeal);
 
-        // Get meal type from previous activity
+        // get meal type from previous activity
         String mealType = getIntent().getStringExtra("mealType");
         tvMealTitle.setText("Add " + mealType);
 
@@ -73,7 +69,7 @@ public class AddMealActivity extends AppCompatActivity {
             }
             Intent resultIntent = new Intent();
             resultIntent.putExtra("mealCalories", total);
-            resultIntent.putExtra("mealType", mealType); // Optionally pass meal type
+            resultIntent.putExtra("mealType", mealType);
             resultIntent.putParcelableArrayListExtra("foodItems", foodList);
             setResult(RESULT_OK, resultIntent);
 
@@ -107,7 +103,7 @@ public class AddMealActivity extends AppCompatActivity {
             if (!foodName.isEmpty() && !caloriesStr.isEmpty()) {
                 int kcal = Integer.parseInt(caloriesStr);
 
-                String emoji = "🍽️"; // You can customize this logic
+                String emoji = "🍽️";
                 if (foodName.toLowerCase().contains("egg")) emoji = "🥚";
                 else if (foodName.toLowerCase().contains("toast")) emoji = "🍞";
                 else if (foodName.toLowerCase().contains("pancake")) emoji = "🥞";

@@ -3,8 +3,8 @@ package com.example.test4;
 import android.os.Parcel;
 import android.os.Parcelable;
 
-//Lets user: Search from predefined food list, Add a custom food item (name + calories)
-//Passes selected item back to AddMealActivity
+// allows user 2 search from predefined food list, Add a custom food item (name + calories)
+// passes selected item back to AddMealActivity
 public class FoodItem implements Parcelable {
     public String name;
     public int calories;

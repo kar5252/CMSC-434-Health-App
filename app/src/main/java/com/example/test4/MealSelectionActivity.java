@@ -8,8 +8,8 @@ import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 
-//meal picker Displays Breakfast, Lunch, Dinner, Snack as buttons
-//and handles On button press ➜ launches AddMealActivity with mealType in Intent
+//meal picker shows Breakfast, Lunch, Dinner, Snack as buttons
+//and handles On button press -> launches AddMealActivity with mealType in Intent
 public class MealSelectionActivity extends AppCompatActivity {
 
     private static final int REQUEST_CODE_ADD_MEAL = 100;
@@ -41,7 +41,7 @@ public class MealSelectionActivity extends AppCompatActivity {
     private void startMeal(String mealType) {
         Intent intent = new Intent(this, AddMealActivity.class);
         intent.putExtra("mealType", mealType);
-        startActivityForResult(intent, REQUEST_CODE_ADD_MEAL);
+        startActivityForResult(intent, REQUEST_CODE_ADD_MEAL); //use something else, will fix later
     }
 
     @Override
@@ -49,7 +49,7 @@ public class MealSelectionActivity extends AppCompatActivity {
         super.onActivityResult(requestCode, resultCode, data);
 
         if (requestCode == REQUEST_CODE_ADD_MEAL && resultCode == RESULT_OK && data != null) {
-            // Forward result back to Calorie_Tracker
+            // send result back to Calorie_Tracker
             setResult(RESULT_OK, data);
             finish();
         }
