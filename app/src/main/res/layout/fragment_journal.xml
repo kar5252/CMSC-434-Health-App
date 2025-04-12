@@ -28,7 +28,6 @@ android:padding="16dp">
         android:id="@+id/addGoalButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:backgroundTint="#2E3ADD"
         android:text="@string/add"/>
 
 
