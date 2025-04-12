@@ -7,6 +7,7 @@
     android:orientation="vertical"
     android:gravity="top"
     android:padding="24dp"
+    android:background="#ebf5ff"
     tools:context=".Calorie_Tracker">
 
     <androidx.appcompat.widget.Toolbar
@@ -28,7 +29,7 @@
         android:layout_marginTop="20dp"
         android:textSize="34sp"
         android:textAllCaps="true"
-        android:textColor="#000000"
+        android:textColor="@color/black"
         android:textStyle="bold" />
 
     <View
@@ -63,6 +64,7 @@
         android:text="➕  Add Meal"
         android:textSize="20sp"
         android:padding="16dp"
+
         android:layout_marginTop="35dp" />
 
     <!-- Breakfast Section -->
@@ -87,8 +89,9 @@
             android:id="@+id/breakfastText"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:padding="16dp"
             android:text="Breakfast"
-            android:textSize="24sp"
+            android:textSize="30sp"
             android:textAllCaps="true"
             android:textStyle="bold" />
     </LinearLayout>
@@ -125,7 +128,7 @@
             android:layout_height="wrap_content"
             android:padding="16dp"
             android:text="Lunch"
-            android:textSize="24sp"
+            android:textSize="30sp"
             android:textAllCaps="true"
             android:textStyle="bold" />
     </LinearLayout>
@@ -162,7 +165,7 @@
             android:layout_height="wrap_content"
             android:padding="16dp"
             android:text="Dinner"
-            android:textSize="24sp"
+            android:textSize="30sp"
             android:textAllCaps="true"
             android:textStyle="bold" />
     </LinearLayout>
@@ -175,7 +178,35 @@
         android:paddingStart="16dp"
         android:layout_marginBottom="32dp" />
 
-    <!-- Optional: Snack Section -->
+    <!-- Snack Section -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_marginTop="20dp"
+        android:padding="16dp"
+        android:gravity="center_vertical">
+
+        <com.google.android.material.imageview.ShapeableImageView
+            android:id="@+id/snackIcon"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:src="@drawable/fries"
+            android:scaleType="centerCrop"
+            android:layout_marginEnd="12dp"
+            app:shapeAppearanceOverlay="@style/roundedImageViewRounded" />
+
+        <TextView
+            android:id="@+id/snackText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:padding="16dp"
+            android:text="Snack"
+            android:textSize="30sp"
+            android:textAllCaps="true"
+            android:textStyle="bold" />
+    </LinearLayout>
+
     <LinearLayout
         android:id="@+id/snackSection"
         android:layout_width="match_parent"
