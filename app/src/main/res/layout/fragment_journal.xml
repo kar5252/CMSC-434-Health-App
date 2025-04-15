@@ -1,43 +1,79 @@
-<?xml version="1.0" encoding="utf-8"?>
 <LinearLayout
-xmlns:android="http://schemas.android.com/apk/res/android"
-android:layout_width="match_parent"
-android:layout_height="match_parent"
-    android:background="#ebf5ff"
-android:orientation="vertical"
-
-android:padding="16dp">
-
-<!-- Input for new goal -->
-<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="wrap_content"
-    android:orientation="horizontal">
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:padding="16dp"
+    android:paddingTop="32dp"
+    android:fitsSystemWindows="true"
+    android:background="#ebf5ff">
 
 
-    <EditText
-        android:id="@+id/goalInput"
-        android:layout_width="0dp"
-        android:layout_weight="1"
-        android:layout_height="wrap_content"
-        android:hint="@string/add_a_goal"
-        android:importantForAutofill="no"
-        android:inputType="text" />
-
-    <Button
-        android:id="@+id/addGoalButton"
+    <!-- Step 1: RadioGroup stands on its own -->
+    <RadioGroup
+        android:id="@+id/goalTypeGroup"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="@string/add"/>
+        android:orientation="horizontal">
 
+        <RadioButton
+            android:id="@+id/radioDaily"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Daily"
+            android:checked="true"/>
 
-</LinearLayout>
+        <RadioButton
+            android:id="@+id/radioLongTerm"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Long-Term"/>
+    </RadioGroup>
 
-<!-- List of checkable goals -->
-<ListView
-    android:id="@+id/goalsListView"
-    android:layout_width="match_parent"
-    android:layout_height="0dp"
-    android:layout_weight="1"
-    android:dividerHeight="1dp"/>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:orientation="horizontal">
+
+        <EditText
+            android:id="@+id/goalInput"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:baselineAligned="false"
+            android:hint="@string/add_a_goal"
+            android:inputType="text" />
+
+        <Button
+            android:id="@+id/addGoalButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:text="@string/add" />
+
+        <Button
+            android:id="@+id/deleteGoalsButton"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:text="Delete Selected Goals" />
+
+    </LinearLayout>
+
+    <!-- ListView -->
+
+    <!-- Pie Chart -->
+    <ListView
+        android:id="@+id/goalsListView"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginTop="8dp"
+        android:layout_weight="1"
+        android:dividerHeight="1dp" />
+
+    <com.github.mikephil.charting.charts.PieChart
+        android:id="@+id/pieChart"
+        android:layout_width="match_parent"
+        android:layout_height="250dp"
+        android:layout_marginTop="16dp"/>
 </LinearLayout>
