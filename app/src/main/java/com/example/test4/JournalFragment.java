@@ -112,7 +112,6 @@ public class JournalFragment extends Fragment {
     }
     private final ArrayList<Goal> allGoals = new ArrayList<>();
 
-    // Create a custom class to track goal type and completion
     private static class Goal {
         String text;
         boolean isCompleted;
@@ -142,7 +141,7 @@ public class JournalFragment extends Fragment {
         }
 
         ArrayList<PieEntry> entries = new ArrayList<>();
-        if (dailyCompleted > 0) entries.add(new PieEntry(dailyCompleted, "Daily ✔"));
+        if (dailyCompleted > 0) entries.add(new PieEntry(dailyCompleted,"Daily ✔"));
         if (dailyPending > 0) entries.add(new PieEntry(dailyPending, "Daily ⏳"));
         if (longCompleted > 0) entries.add(new PieEntry(longCompleted, "Long-Term ✔"));
         if (longPending > 0) entries.add(new PieEntry(longPending, "Long-Term ⏳"));
@@ -154,7 +153,7 @@ public class JournalFragment extends Fragment {
 
         PieData data = new PieData(dataSet);
         pieChart.setData(data);
-        pieChart.invalidate(); // Refresh chart
+        pieChart.invalidate();
     }
 
 }
