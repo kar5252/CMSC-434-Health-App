@@ -96,7 +96,6 @@ public class JournalFragment extends Fragment {
                 if (!newGoalText.isEmpty()) {
                     boolean isDaily = radioDaily.isChecked();
                     Goal goal = new Goal(newGoalText, isDaily);
-                    // true for daily; make a toggle for long-term if needed
                     allGoals.add(goal);
                     goalsList.add(goal.text + (goal.isDaily ? " (Daily)" : " (Long-Term)"));
                     adapter.notifyDataSetChanged();
@@ -112,7 +111,6 @@ public class JournalFragment extends Fragment {
     }
     private final ArrayList<Goal> allGoals = new ArrayList<>();
 
-    // Create a custom class to track goal type and completion
     private static class Goal {
         String text;
         boolean isCompleted;
@@ -142,7 +140,7 @@ public class JournalFragment extends Fragment {
         }
 
         ArrayList<PieEntry> entries = new ArrayList<>();
-        if (dailyCompleted > 0) entries.add(new PieEntry(dailyCompleted, "Daily ✔"));
+        if (dailyCompleted > 0) entries.add(new PieEntry(dailyCompleted,"Daily ✔"));
         if (dailyPending > 0) entries.add(new PieEntry(dailyPending, "Daily ⏳"));
         if (longCompleted > 0) entries.add(new PieEntry(longCompleted, "Long-Term ✔"));
         if (longPending > 0) entries.add(new PieEntry(longPending, "Long-Term ⏳"));
@@ -150,11 +148,11 @@ public class JournalFragment extends Fragment {
         PieDataSet dataSet = new PieDataSet(entries, "Goal Progress");
         dataSet.setColors(ColorTemplate.MATERIAL_COLORS);
         dataSet.setValueTextColor(Color.BLACK);
-        dataSet.setValueTextSize(14f);
+        dataSet.setValueTextSize(17f);
 
         PieData data = new PieData(dataSet);
         pieChart.setData(data);
-        pieChart.invalidate(); // Refresh chart
+        pieChart.invalidate();
     }
 
 }

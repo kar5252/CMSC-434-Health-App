@@ -9,7 +9,6 @@
     android:background="#ebf5ff">
 
 
-    <!-- Step 1: RadioGroup stands on its own -->
     <RadioGroup
         android:id="@+id/goalTypeGroup"
         android:layout_width="wrap_content"
@@ -60,9 +59,6 @@
 
     </LinearLayout>
 
-    <!-- ListView -->
-
-    <!-- Pie Chart -->
     <ListView
         android:id="@+id/goalsListView"
         android:layout_width="match_parent"
@@ -75,5 +71,6 @@
         android:id="@+id/pieChart"
         android:layout_width="match_parent"
         android:layout_height="250dp"
-        android:layout_marginTop="16dp"/>
+        android:layout_marginTop="16dp" />
+
 </LinearLayout>
