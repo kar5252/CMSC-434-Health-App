@@ -3,6 +3,7 @@ package com.example.test4;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
+import android.widget.ImageView;
 import android.widget.ProgressBar;
 import android.widget.TextView;
 
@@ -66,6 +67,24 @@ public class MainActivity extends AppCompatActivity implements TabNavigator {
                 View customView = LayoutInflater.from(this).inflate(R.layout.custom_tab, null);
                 TextView textView = customView.findViewById(R.id.tabText);
                 textView.setText(tabTitles[i]);
+                //tab.setCustomView(customView);
+
+                ImageView iconView = customView.findViewById(R.id.tabIcon);
+                switch(i){
+                    case 0:
+                        iconView.setImageResource(R.drawable.baseline_food_bank_24);
+                        break;
+                    case 1:
+                        iconView.setImageResource(R.drawable.food_icon);
+                        break;
+                    case 2:
+                        iconView.setImageResource(R.drawable.baseline_fitness_center_24);
+                        break;
+                    case 3:
+                        iconView.setImageResource(R.drawable.goal_icon);
+                        break;
+
+                }
                 tab.setCustomView(customView);
             }
         }

@@ -1,10 +1,22 @@
 <?xml version="1.0" encoding="utf-8"?>
-<TextView xmlns:android="http://schemas.android.com/apk/res/android"
-    android:id="@+id/tabText"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="wrap_content"
     android:layout_height="wrap_content"
-    android:textSize="25sp"
-    android:textColor="@color/black"
-    android:textStyle="bold"
+    android:orientation="vertical"
     android:gravity="center"
-    android:padding="8dp"/>
+    android:padding="5dp">
+    <ImageView
+        android:id="@+id/tabIcon"
+        android:layout_width = "30dp"
+        android:layout_height="30dp"
+        android:layout_marginBottom="4dp"/>
+    <TextView
+        android:id="@+id/tabText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="20sp"
+        android:textColor="@color/black"
+        android:textStyle="bold"
+        android:gravity="center"
+        android:padding="3dp"/>
+    </LinearLayout>
