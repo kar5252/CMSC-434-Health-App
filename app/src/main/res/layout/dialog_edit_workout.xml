@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:padding="24dp"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Edit Exercise Name"
+        android:textSize="18sp" />
+
+    <EditText
+        android:id="@+id/dialogExerciseNameInput"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Enter exercise name"
+        android:textSize="16sp" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Edit Reps"
+        android:textSize="18sp"
+        android:layout_marginTop="8dp" />
+
+    <EditText
+        android:id="@+id/dialogRepsInput"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Enter reps"
+        android:textSize="16sp" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Edit Sets"
+        android:textSize="18sp"
+        android:layout_marginTop="8dp" />
+
+    <EditText
+        android:id="@+id/dialogSetsInput"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Enter sets"
+        android:textSize="16sp" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Edit Duration (minutes)"
+        android:textSize="18sp"
+        android:layout_marginTop="8dp" />
+
+    <EditText
+        android:id="@+id/dialogDurationInput"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Enter duration"
+        android:textSize="16sp" />
+</LinearLayout>
