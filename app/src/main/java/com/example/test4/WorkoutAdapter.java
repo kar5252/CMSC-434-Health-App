@@ -34,6 +34,7 @@ public class WorkoutAdapter extends ArrayAdapter<String> {
 
         TextView workoutText = convertView.findViewById(R.id.workoutText);
         Button editButton = convertView.findViewById(R.id.editButton);
+        Button deleteButton = convertView.findViewById(R.id.deleteButton);
 
         String currentWorkout = workouts.get(position);
         workoutText.setText(currentWorkout);
@@ -44,7 +45,6 @@ public class WorkoutAdapter extends ArrayAdapter<String> {
             EditText repsInput = dialogView.findViewById(R.id.dialogRepsInput);
             EditText setsInput = dialogView.findViewById(R.id.dialogSetsInput);
             EditText durationInput = dialogView.findViewById(R.id.dialogDurationInput);
-
 
             String exercise = "", reps = "", sets = "", duration = "";
             try {
@@ -68,6 +68,7 @@ public class WorkoutAdapter extends ArrayAdapter<String> {
                     .setTitle("Edit Workout")
                     .setView(dialogView)
                     .setPositiveButton("Save", (dialog, which) -> {
+                        // Create updated workout string from new data
                         String updatedWorkout = "Exercise: " + exerciseInput.getText().toString() +
                                 ", Reps: " + repsInput.getText().toString() +
                                 ", Sets: " + setsInput.getText().toString() +
@@ -78,6 +79,18 @@ public class WorkoutAdapter extends ArrayAdapter<String> {
                     .setNegativeButton("Cancel", null)
                     .show();
         });
+
+        deleteButton.setOnClickListener(v ->
+                new AlertDialog.Builder(context)
+                        .setTitle("Delete Workout")
+                        .setMessage("Are you sure you want to delete this workout?")
+                        .setPositiveButton("Delete", (dialog, which) -> {
+                            workouts.remove(position);
+                            notifyDataSetChanged();
+                        })
+                        .setNegativeButton("Cancel", null)
+                        .show()
+        );
 
         return convertView;
     }
