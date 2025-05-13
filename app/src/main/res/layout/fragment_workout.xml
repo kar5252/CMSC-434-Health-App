@@ -2,147 +2,189 @@
     xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:padding="24dp"
-    android:background="@android:color/white">
+    android:padding="16dp"
+    android:background="#ebf5ff">
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="vertical">
+        android:orientation="vertical"
+        android:padding="8dp">
 
         <TextView
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="Select Target Muscle"
-            android:textSize="20sp"
+            android:textSize="24sp"
             android:textStyle="bold"
-            android:layout_marginBottom="12dp" />
+            android:layout_marginBottom="16dp"
+            android:gravity="center" />
 
         <GridLayout
             android:id="@+id/muscleSelectionGrid"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:columnCount="3"
-            android:rowCount="2"
             android:padding="12dp">
 
             <Button
                 android:id="@+id/muscleChest"
-                android:text="Chest"
-                android:textSize="18sp"
-                android:padding="10dp"/>
+                android:layout_width="0dp"
+                android:layout_height="80dp"
+                android:layout_columnWeight="1"
+                android:text="  Chest  "
+                android:textSize="20sp"
+                android:gravity="center"
+                android:padding="12dp" />
+
             <Button
                 android:id="@+id/muscleLegs"
-                android:text="Legs"
-                android:textSize="18sp"
-                android:padding="10dp"/>
+                android:layout_width="0dp"
+                android:layout_height="80dp"
+                android:layout_columnWeight="1"
+                android:text="  Legs   "
+                android:textSize="20sp"
+                android:gravity="center"
+                android:padding="12dp" />
+
             <Button
                 android:id="@+id/muscleBack"
-                android:text="Back"
-                android:textSize="18sp"
-                android:padding="10dp"/>
+                android:layout_width="0dp"
+                android:layout_height="80dp"
+                android:layout_columnWeight="1"
+                android:text="  Back   "
+                android:textSize="20sp"
+                android:gravity="center"
+                android:padding="12dp" />
+
             <Button
                 android:id="@+id/muscleShoulders"
+                android:layout_width="0dp"
+                android:layout_height="80dp"
+                android:layout_columnWeight="1"
                 android:text="Shoulders"
-                android:textSize="18sp"
-                android:padding="10dp"/>
+                android:textSize="20sp"
+                android:gravity="center"
+                android:padding="12dp" />
+
             <Button
                 android:id="@+id/muscleArms"
-                android:text="Arms"
-                android:textSize="18sp"
-                android:padding="10dp"/>
+                android:layout_width="0dp"
+                android:layout_height="80dp"
+                android:layout_columnWeight="1"
+                android:text="  Arms   "
+                android:textSize="20sp"
+                android:gravity="center"
+                android:padding="12dp" />
+
             <Button
                 android:id="@+id/muscleCore"
-                android:text="Core"
-                android:textSize="18sp"
-                android:padding="10dp"/>
+                android:layout_width="0dp"
+                android:layout_height="80dp"
+                android:layout_columnWeight="1"
+                android:text="  Core   "
+                android:textSize="20sp"
+                android:gravity="center"
+                android:padding="12dp" />
         </GridLayout>
 
         <TextView
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="Workout Recommendations"
-            android:textSize="20sp"
+            android:textSize="24sp"
             android:textStyle="bold"
-            android:layout_marginTop="16dp"
-            android:layout_marginBottom="8dp" />
+            android:layout_marginBottom="8dp"
+            android:gravity="center" />
 
         <ListView
             android:id="@+id/workoutListView"
             android:layout_width="match_parent"
-            android:layout_height="200dp"
+            android:layout_height="280dp"
             android:divider="@android:color/darker_gray"
-            android:dividerHeight="2dp"
+            android:dividerHeight="4dp"
             android:padding="8dp" />
 
         <TextView
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="Exercise Name"
-            android:textSize="18sp"/>
+            android:textSize="22sp"
+            android:gravity="center" />
+
         <EditText
             android:id="@+id/exerciseNameInput"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:hint="Enter exercise name"
-            android:textSize="16sp"/>
+            android:textSize="20sp"
+            android:padding="10dp" />
 
         <TextView
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="Reps"
-            android:textSize="18sp"/>
+            android:textSize="22sp"
+            android:gravity="center" />
+
         <EditText
             android:id="@+id/repsInput"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:hint="Enter reps"
-            android:textSize="16sp"/>
+            android:textSize="20sp"
+            android:padding="10dp" />
 
         <TextView
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="Sets"
-            android:textSize="18sp"/>
+            android:textSize="22sp"
+            android:gravity="center" />
+
         <EditText
             android:id="@+id/setsInput"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:hint="Enter sets"
-            android:textSize="16sp"/>
+            android:textSize="20sp"
+            android:padding="10dp" />
 
         <TextView
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="Duration (minutes)"
-            android:textSize="18sp"/>
+            android:textSize="22sp"
+            android:gravity="center" />
+
         <EditText
             android:id="@+id/durationInput"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:hint="Enter duration"
-            android:textSize="16sp"/>
+            android:textSize="20sp"
+            android:padding="10dp" />
 
         <Button
             android:id="@+id/confirmWorkoutButton"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="Confirm Workout"
-            android:textSize="18sp"
-            android:layout_marginTop="16dp"
+            android:textSize="22sp"
+            android:layout_marginTop="20dp"
             android:padding="16dp"
             android:backgroundTint="@android:color/holo_blue_light"
-            android:textColor="@android:color/white"/>
+            android:textColor="@android:color/white" />
 
         <Button
             android:id="@+id/previousWorkoutsButton"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="Previous Workouts"
-            android:textSize="18sp"
-            android:layout_marginTop="12dp"
+            android:textSize="22sp"
+            android:layout_marginTop="20dp"
             android:padding="16dp"
-            android:backgroundTint="@android:color/holo_orange_light"
-            android:textColor="@android:color/white"/>
+            android:backgroundTint="@android:color/holo_orange_dark"
+            android:textColor="@android:color/white" />
     </LinearLayout>
 </ScrollView>
