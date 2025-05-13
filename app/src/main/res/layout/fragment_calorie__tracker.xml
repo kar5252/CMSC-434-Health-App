@@ -57,15 +57,7 @@
         android:textSize="26sp"
         android:textColor="#000000" />
 
-    <Button
-        android:id="@+id/add_meal_button"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="➕  Add Meal"
-        android:textSize="20sp"
-        android:padding="16dp"
 
-        android:layout_marginTop="35dp" />
 
     <!-- Breakfast Section -->
     <LinearLayout
@@ -74,7 +66,8 @@
         android:orientation="horizontal"
         android:layout_marginTop="20dp"
         android:padding="16dp"
-        android:gravity="center_vertical">
+        android:gravity="center_vertical"
+        android:weightSum="1">
 
         <com.google.android.material.imageview.ShapeableImageView
             android:id="@+id/breakfastIcon"
@@ -85,15 +78,27 @@
             android:layout_marginEnd="12dp"
             app:shapeAppearanceOverlay="@style/roundedImageViewRounded" />
 
+
         <TextView
             android:id="@+id/breakfastText"
-            android:layout_width="wrap_content"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
+            android:layout_weight="0.8"
             android:padding="16dp"
             android:text="Breakfast"
             android:textSize="30sp"
             android:textAllCaps="true"
             android:textStyle="bold" />
+
+        <Button
+            android:id="@+id/breakfastAddButton"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="0.2"
+            android:text="+ Add"
+            android:textSize="28sp"
+            android:padding="4dp" />
+
     </LinearLayout>
 
     <LinearLayout
@@ -111,7 +116,8 @@
         android:orientation="horizontal"
         android:layout_marginTop="20dp"
         android:padding="16dp"
-        android:gravity="center_vertical">
+        android:gravity="center_vertical"
+        android:weightSum="1">
 
         <com.google.android.material.imageview.ShapeableImageView
             android:id="@+id/lunchIcon"
@@ -124,13 +130,23 @@
 
         <TextView
             android:id="@+id/lunchText"
-            android:layout_width="wrap_content"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
+            android:layout_weight="0.8"
             android:padding="16dp"
             android:text="Lunch"
             android:textSize="30sp"
             android:textAllCaps="true"
             android:textStyle="bold" />
+
+        <Button
+            android:id="@+id/lunchAddButton"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="0.2"
+            android:text="+ Add"
+            android:textSize="28sp"
+            android:padding="4dp" />
     </LinearLayout>
 
     <LinearLayout
@@ -148,7 +164,8 @@
         android:orientation="horizontal"
         android:layout_marginTop="20dp"
         android:padding="16dp"
-        android:gravity="center_vertical">
+        android:gravity="center_vertical"
+        android:weightSum="1">
 
         <com.google.android.material.imageview.ShapeableImageView
             android:id="@+id/dinnerIcon"
@@ -159,15 +176,27 @@
             android:layout_marginEnd="12dp"
             app:shapeAppearanceOverlay="@style/roundedImageViewRounded" />
 
+
         <TextView
             android:id="@+id/dinnerText"
-            android:layout_width="wrap_content"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
+            android:layout_weight="0.8"
             android:padding="16dp"
             android:text="Dinner"
             android:textSize="30sp"
             android:textAllCaps="true"
             android:textStyle="bold" />
+
+        <Button
+            android:id="@+id/dinnerAddButton"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="0.2"
+            android:text="+ Add"
+            android:textSize="28sp"
+            android:padding="4dp" />
+
     </LinearLayout>
 
     <LinearLayout
@@ -185,7 +214,8 @@
         android:orientation="horizontal"
         android:layout_marginTop="20dp"
         android:padding="16dp"
-        android:gravity="center_vertical">
+        android:gravity="center_vertical"
+        android:weightSum="1">
 
         <com.google.android.material.imageview.ShapeableImageView
             android:id="@+id/snackIcon"
@@ -196,15 +226,27 @@
             android:layout_marginEnd="12dp"
             app:shapeAppearanceOverlay="@style/roundedImageViewRounded" />
 
+
         <TextView
             android:id="@+id/snackText"
-            android:layout_width="wrap_content"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
+            android:layout_weight="0.8"
             android:padding="16dp"
             android:text="Snack"
             android:textSize="30sp"
             android:textAllCaps="true"
             android:textStyle="bold" />
+
+        <Button
+            android:id="@+id/snackAddButton"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="0.2"
+            android:text="+ Add"
+            android:textSize="28sp"
+            android:padding="4dp" />
+
     </LinearLayout>
 
     <LinearLayout

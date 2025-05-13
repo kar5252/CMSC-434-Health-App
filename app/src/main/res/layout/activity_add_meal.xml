@@ -31,9 +31,13 @@
             android:id="@+id/tvMealTitle"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Add Meal"
-            android:textSize="20sp"
-            android:layout_marginStart="16dp"/>
+            android:text="Adding: Breakfast"
+            android:textSize="24sp"
+            android:textStyle="bold"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginTop="16dp"
+            android:textColor="#333333" />
+
 
     </LinearLayout>
 
@@ -60,7 +64,7 @@
 
         android:layout_height="wrap_content"
         android:text="+ Add Food Item"
-        android:textSize="24sp"
+        android:textSize="26sp"
         android:padding="18dp"
         android:layout_gravity="center_horizontal"
         android:layout_marginBottom="64dp"/>
@@ -72,20 +76,22 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Total Calories: 0 cals"
-        android:textSize="16sp"
-        android:layout_marginTop="16dp"/>
+        android:layout_marginTop="16dp"
+
+        android:textSize="32sp"
+        android:textStyle="bold"
+        android:layout_gravity="center_horizontal" />
 
     <Button
         android:id="@+id/btnConfirmAddMeal"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="Confirm &amp; Add Meal"
-        android:layout_marginTop="8dp"/>
+
+        android:layout_marginTop="8dp"
+        android:textSize="32sp"
+        android:padding="16dp"
+        android:textStyle="bold" />
 
 </LinearLayout>
-
-
-
-
-
 
