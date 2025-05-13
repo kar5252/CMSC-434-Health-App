@@ -1,16 +1,12 @@
 package com.example.test4;
 
 import android.app.AlertDialog;
-
 import android.content.Intent;
 import android.os.Bundle;
-
 import android.view.MenuItem;
 import android.view.View;
-
 import android.widget.Button;
 import android.widget.EditText;
-
 import android.widget.ListView;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -24,8 +20,6 @@ import java.util.ArrayList;
 import com.example.test4.FoodItemAdapter;
 import com.example.test4.FoodItem;
 
-
-// Add Food Item -> opens FoodSearchDialog
 public class AddMealActivity extends AppCompatActivity {
 
     private TextView tvMealTitle, tvTotalCalories;
@@ -33,6 +27,8 @@ public class AddMealActivity extends AppCompatActivity {
 
     private ArrayList<FoodItem> foodList;
     private FoodItemAdapter foodAdapter;
+    private String mealType;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -51,8 +47,13 @@ public class AddMealActivity extends AppCompatActivity {
         Button btnConfirmAddMeal = findViewById(R.id.btnConfirmAddMeal);
 
         // get meal type from previous activity
-        String mealType = getIntent().getStringExtra("mealType");
-        tvMealTitle.setText("Add " + mealType);
+        mealType = getIntent().getStringExtra("mealType");
+        if (mealType == null) mealType = "Meal";
+
+        // SETTINGS FOR THE "ADDING: _____"
+        String mealEmoji = getMealEmoji(mealType);
+        tvMealTitle.setText("Adding: " + mealType + " " + mealEmoji);
+        tvMealTitle.setTextSize(30); // or any size you want, in SP units
 
 
         foodList = new ArrayList<>();
@@ -62,7 +63,6 @@ public class AddMealActivity extends AppCompatActivity {
         btnAddFoodItem.setOnClickListener(view -> showAddFoodDialog());
 
         btnConfirmAddMeal.setOnClickListener(view -> {
-            // Save meal to database or pass result back to update calorie bar
             int total = 0;
             for (FoodItem f : foodList) {
                 total += f.calories;
@@ -76,6 +76,21 @@ public class AddMealActivity extends AppCompatActivity {
             Toast.makeText(this, "Meal added!", Toast.LENGTH_SHORT).show();
             finish();
         });
+    }
+
+    private String getMealEmoji(String mealType) {
+        switch (mealType.toLowerCase()) {
+            case "breakfast":
+                return "🍳";
+            case "lunch":
+                return "🍱";
+            case "dinner":
+                return "🍛";
+            case "snack":
+                return "🥨";
+            default:
+                return "🍴";
+        }
     }
 
     @Override
@@ -129,7 +144,6 @@ public class AddMealActivity extends AppCompatActivity {
                 else if (foodName.toLowerCase().contains("fries")) emoji = "🍟";
                 else if (foodName.toLowerCase().contains("pie")) emoji = "🥧";
 
-
                 foodList.add(new FoodItem(foodName, kcal, emoji));
                 foodAdapter.notifyDataSetChanged();
                 updateTotalCalories();
@@ -142,6 +156,7 @@ public class AddMealActivity extends AppCompatActivity {
         builder.setNegativeButton("Cancel", null);
         builder.show();
     }
+
     private void updateTotalCalories() {
         int total = 0;
         for (FoodItem f : foodList) {
@@ -150,5 +165,6 @@ public class AddMealActivity extends AppCompatActivity {
         tvTotalCalories.setText("Total Calories: " + total + " cals");
     }
 }
+
 
 

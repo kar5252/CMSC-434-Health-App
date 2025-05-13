@@ -9,7 +9,6 @@ import android.os.Bundle;
 import androidx.activity.result.ActivityResultLauncher;
 import androidx.activity.result.contract.ActivityResultContracts;
 import androidx.annotation.Nullable;
-import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.Fragment;
 
 import android.view.LayoutInflater;
@@ -23,7 +22,6 @@ import android.widget.TextView;
 import java.util.ArrayList;
 
 public class Calorie_Tracker extends Fragment {
-    private Button addMeal;
 
     private ActivityResultLauncher<Intent> addMealLauncher;
 
@@ -36,11 +34,7 @@ public class Calorie_Tracker extends Fragment {
 
         View view = inflater.inflate(R.layout.fragment_calorie__tracker, container, false);
 
-        addMeal = view.findViewById(R.id.add_meal_button);
-
-
-
-
+        // Setup launcher to receive data from AddMealActivity
         addMealLauncher = registerForActivityResult(
                 new ActivityResultContracts.StartActivityForResult(),
                 result -> {
@@ -53,31 +47,38 @@ public class Calorie_Tracker extends Fragment {
 
                         updateCalorieProgress(mealCalories);
 
-                        if (foodList != null && mealType != null ) {
+                        if (foodList != null && mealType != null) {
                             updateMealSection(view, mealType, foodList);
                         }
-
                     }
                 }
         );
 
+        // Set up individual meal add buttons
+        Button breakfastAdd = view.findViewById(R.id.breakfastAddButton);
+        Button lunchAdd = view.findViewById(R.id.lunchAddButton);
+        Button dinnerAdd = view.findViewById(R.id.dinnerAddButton);
+        Button snackAdd = view.findViewById(R.id.snackAddButton);
 
-        addMeal.setOnClickListener(v -> {
-            Intent intent = new Intent(getActivity(), MealSelectionActivity.class);
-            addMealLauncher.launch(intent);
-        });
-
+        breakfastAdd.setOnClickListener(v -> openAddMealScreen("Breakfast"));
+        lunchAdd.setOnClickListener(v -> openAddMealScreen("Lunch"));
+        dinnerAdd.setOnClickListener(v -> openAddMealScreen("Dinner"));
+        snackAdd.setOnClickListener(v -> openAddMealScreen("Snack"));
 
         return view;
     }
 
+    private void openAddMealScreen(String mealType) {
+        Intent intent = new Intent(getActivity(), AddMealActivity.class);
+        intent.putExtra("mealType", mealType); // Pass selected meal type directly
+        addMealLauncher.launch(intent);
+    }
 
     private void updateCalorieProgress(int addedCalories) {
         totalCaloriesSoFar += addedCalories;
 
         ProgressBar progressBar = getView().findViewById(R.id.progressBar);
         TextView calorieLabel = getView().findViewById(R.id.calorieLabel);
-
 
         progressBar.setMax(dailyGoal);
         progressBar.setProgress(totalCaloriesSoFar);
@@ -117,9 +118,5 @@ public class Calorie_Tracker extends Fragment {
             mealLayout.addView(itemView);
         }
     }
-
-
-
-
-
 }
+
